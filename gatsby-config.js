@@ -27,8 +27,30 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-firestore`,
+      options: {
+        credential: require("./firebase-key.json"),
+        databaseURL: "https://fitness-d1885.firebaseio.com",
+        appConfig:{
+          apiKey: "AIzaSyDnm8nx395BN1djYb3siKsbYRhWYpPuPLg",
+          authDomain: "fitness-d1885.firebaseapp.com",
+          databaseURL: "https://fitness-d1885.firebaseio.com",
+          projectId: "fitness-d1885",
+          storageBucket: "fitness-d1885.appspot.com",
+          messagingSenderId: "979021498850",
+          appId: "1:979021498850:web:712de4c4184e85e8"
+        },
+        types: [{
+          type: `Exercises`,
+          collection: `exercises`,
+          map: doc => ({
+            title: doc.title,
+            description: doc.description,
+            image: doc.image
+          })
+        }]
+      }
+    }
   ],
 }
