@@ -31,18 +31,8 @@ module.exports = {
       resolve: `gatsby-source-firestore`,
       options: {
         credential: require("./firebase-key.json"),
-        databaseURL: "https://fitness-d1885.firebaseio.com",
-        appConfig:{
-          apiKey: "AIzaSyDnm8nx395BN1djYb3siKsbYRhWYpPuPLg",
-          authDomain: "fitness-d1885.firebaseapp.com",
-          databaseURL: "https://fitness-d1885.firebaseio.com",
-          projectId: "fitness-d1885",
-          storageBucket: "fitness-d1885.appspot.com",
-          messagingSenderId: "979021498850",
-          appId: "1:979021498850:web:712de4c4184e85e8"
-        },
         types: [{
-          type: `Exercises`,
+          type: `Exercise`,
           collection: `exercises`,
           map: doc => ({
             title: doc.title,
